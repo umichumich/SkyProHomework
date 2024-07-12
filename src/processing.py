@@ -25,5 +25,5 @@ def sort_by_date(inform_state: list[dict[str]], reverse=True) -> list[dict[str]]
     return sorted_inform_state
 
 
-print(filter_by_state(inform_state=inform_state, state_id="EXECUTED"))
-print(sort_by_date(inform_state=inform_state, reverse=True))
+# print(filter_by_state(inform_state=inform_state, state_id="EXECUTED"))
+# print(sort_by_date(inform_state=inform_state, reverse=True))
