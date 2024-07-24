@@ -11,3 +11,5 @@ def test_sort_by_date(sorted_inform_state):
     assert sort_by_date(sorted_inform_state) == sorted_inform_state
 
 
+def test_filter_by_state(list_state_2):
+    assert filter_by_state(list_state_2) == list_state_2
