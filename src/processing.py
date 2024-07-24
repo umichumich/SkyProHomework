@@ -23,6 +23,3 @@ def sort_by_date(inform_state: list[dict[str]], reverse=True) -> list[dict[str]]
 
     sorted_inform_state = sorted(inform_state, key=lambda inform_state: inform_state["date"], reverse=reverse)
     return sorted_inform_state
-
-#print(filter_by_state(inform_state))
-#print(sort_by_date(inform_state))
