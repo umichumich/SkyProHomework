@@ -19,6 +19,5 @@ def test_mask_account_card(account_card, expected):
     assert mask_account_card(account_card) == expected
 
 
-
 def test_get_date(input_date):
     assert get_date("2024-03-11T02:26:18.671407") == input_date
