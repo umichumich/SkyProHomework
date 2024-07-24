@@ -1,4 +1,4 @@
-from masks import get_mask_account, get_mask_card_number
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(account_card: str) -> str | None:
@@ -49,8 +49,8 @@ def get_date(input_date: str) -> str | None:
     return formatted_date
 
 
-input_date = input("Введите данные с текущей датой: ")
-account_card = input("Введите ваши банковские данные: ")
+#input_date = input("Введите данные с текущей датой: ")
+#account_card = input("Введите ваши банковские данные: ")
 
-print(mask_account_card(account_card))
-print(get_date(input_date))
+#print(mask_account_card(account_card))
+#print(get_date(input_date))
