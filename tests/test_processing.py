@@ -11,4 +11,3 @@ def test_sort_by_date(sorted_inform_state):
     assert sort_by_date(sorted_inform_state) == sorted_inform_state
 
 
-@pytest.mark.parametrize("inform_state, exected")
