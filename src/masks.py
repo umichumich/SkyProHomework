@@ -14,9 +14,9 @@ def get_mask_account(acc_number: str) -> str | None:
         return None
 
 
-# card_number = input("Введите номер вашей карты: ")
-# acc_number = input("Введите номер вашего счета: ")
+#card_number = input("Введите номер вашей карты: ")
+#acc_number = input("Введите номер вашего счета: ")
 
 
-# print(get_mask_card_number(card_number))
-# print(get_mask_account(acc_number))
+#print(get_mask_card_number(card_number))
+#print(get_mask_account(acc_number))
