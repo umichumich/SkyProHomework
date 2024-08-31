@@ -3,6 +3,11 @@ from typing import Any, Callable
 
 
 def log(filename: Any) -> Callable:
+    """Логирует вызов функции и ее результат в файл или в консоль
+    :param filename: Путь к файлу для записи логов. Если не указан, логи выводятся в консоль.
+    :return:Декораор для логирования вызовов функции.
+    """
+
     def decorator(func: Callable) -> Callable:
         @wraps(func)
         def wrapper(*args: Any, **kwargs: Any) -> Any:
