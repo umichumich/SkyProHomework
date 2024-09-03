@@ -1,35 +1,39 @@
-from functools import wraps
-from typing import Any, Callable
+import os
 
 
-def log(filename: Any) -> Callable:
-    """Логирует вызов функции и ее результат в файл или в консоль
-    :param filename: Путь к файлу для записи логов. Если не указан, логи выводятся в консоль.
-    :return:Декораор для логирования вызовов функции.
-    """
+def log(filename=None):
+    """Декоратор регистрирует детали выполнения функций"""
 
-    def decorator(func: Callable) -> Callable:
-        @wraps(func)
-        def wrapper(*args: Any, **kwargs: Any) -> Any:
+    def wrapper(func):
+
+        def inner(*args, **kwargs):
             try:
                 result = func(*args, **kwargs)
-                log_message = f"{func.__name__} called with args: {args}, kwargs: {kwargs}. Result: {result}"
-                with open(filename, "a") as f:
-                    f.write(log_message + "\n")
-                print(log_message)
+                if filename is None:
+                    print(f"{func.__name__} ok")
+                else:
+                    if len(filename) > 0:
+                        path_to_file = os.path.join(os.path.dirname(__file__), "../logs", filename)
+                        with open(path_to_file, "w", encoding="utf-8") as file:
+                            file.write(f"{func.__name__} ok")
+                return result
             except Exception as e:
-                error_message = f"{func.__name__} error: {e}. Inputs: {args}, {kwargs}"
-                with open(filename, "a") as f:
-                    f.write(error_message + "\n")
-                print(error_message)
-            return wrapper
+                if filename is None:
+                    print(f"{func.__name__} error: {e}. Inputs: ({args}), {kwargs}")
+                else:
+                    path_to_file = os.path.join(os.path.dirname(__file__), "../logs", filename)
+                    with open(path_to_file, "w", encoding="utf-8") as file:
+                        file.write(f"{func.__name__} error: {e}. Inputs: ({args}), {kwargs}")
 
-        return decorator
+        return inner
+
+    return wrapper
 
 
-@log(filename="test_log.txt")
-def my_function(x: int, y: int) -> int:
+@log(None)
+def my_function(x, y):
+    # raise ValueError("Something went wrong")
     return x + y
 
 
-my_function(1, "t")
+my_function(1, 2)
