@@ -4,6 +4,7 @@ from typing import Any
 
 from src.external_api import currency_conversion
 
+
 def financial_transactions(path: str) -> list:
     """Функция принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях."""
     try:
